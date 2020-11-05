@@ -1,11 +1,12 @@
 @import '../../../variables.scss';
 
 .float-button {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     right: 0;
     margin: 5%;
     margin-bottom: 3%;
+    z-index: 1;
     .btn {
         background: $darkPurple;
         border-radius: 50%;
@@ -16,3 +17,30 @@
         color: $white;
     }
 }
+
+.posterImage-container {
+    transition: 0.5s;
+    color: $white;
+    font-weight: bold;
+    
+    .posterImage {
+        width: 90%;
+        height: 80%;
+        border-radius: 3%;
+    }
+    .movie-details {
+        visibility: hidden;
+        position: relative;
+        font-size: 15px;
+        bottom: 80px;
+        left: 3px;
+    }
+    &:hover {
+        transform: scale(1.2);
+        
+        .movie-details {
+            visibility: visible;
+        }
+    }
+}
+

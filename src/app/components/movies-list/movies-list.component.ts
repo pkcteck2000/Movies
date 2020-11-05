@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faStar } from '@fortawesome/free-solid-svg-icons';
+import { IMovies } from '../../../shared/imovies';
+import { MoviesService } from '../../services/movies.service';
 
 @Component({
   selector: 'app-movies-list',
@@ -9,12 +11,18 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 })
 export class MoviesListComponent implements OnInit {
 
+  movies: IMovies[];
+
   //FontAwesome icons
   faPlus = faPlus;
+  faStar = faStar;
   
-  constructor() { }
+  constructor(
+    private moviesService: MoviesService
+  ) { }
 
   ngOnInit(): void {
+    this.movies = this.moviesService.getMovieList();
   }
 
 }

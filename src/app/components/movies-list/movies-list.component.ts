@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { faPlus, faStar } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faStar, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import { IMovies } from '../../../shared/imovies';
 import { MoviesService } from '../../services/movies.service';
 
@@ -16,7 +16,8 @@ export class MoviesListComponent implements OnInit {
   //FontAwesome icons
   faPlus = faPlus;
   faStar = faStar;
-  
+  faTimes = faTimesCircle;
+
   constructor(
     private moviesService: MoviesService
   ) { }

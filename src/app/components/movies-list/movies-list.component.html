@@ -3,9 +3,12 @@
         <fa-icon [icon]="faPlus"></fa-icon>
     </button>
 </div>
-<div class="m-4 mt-5 align-center pl-4">
+<div class="m-5">
     <div class="row">
-        <div class="posterImage-container col-12 pb-1 col-sm-2" *ngFor="let movie of movies">
+        <div class="posterImage-container col-12 col-sm-4 col-md-3 col-lg-2" *ngFor="let movie of movies">
+            <div class="delete-icon">
+                <fa-icon [icon]="faTimes"></fa-icon>
+            </div>
             <img [src] = "movie.posterImage" class="posterImage" alt="movie-poster"/>
             <div class="movie-details">
                 <div>{{movie.title}}</div>

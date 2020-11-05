@@ -56,3 +56,26 @@
     }
 }
 
+.container{
+    .form-container {
+        display: block;
+        .input {
+            border: 0;
+            outline: 0;
+            border-bottom: 1px solid $black;
+            &:focus {
+                border-bottom: 2px solid $green;
+            }
+        }
+    }
+    .close-icon{
+        position: relative;
+        font-size: 30px;
+        top: 2px;
+        text-align: right;
+        color: $red;
+        width: 100%;
+    }
+}
+
+

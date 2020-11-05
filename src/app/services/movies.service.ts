@@ -10,6 +10,7 @@ import { IMovies } from '../../shared/imovies';
 export class MoviesService {
 
   movies: IMovies[];
+  movie: IMovies;
 
   addMovie = (movie) => {
     this.movies.unshift(movie);
@@ -26,6 +27,15 @@ export class MoviesService {
   getMovieList = ():IMovies[]  => {
     this.movies = moviesList
     return this.movies;
+  }
+
+  getMovie = (movieId):IMovies  => {
+    moviesList.forEach((movie) => {
+      if(movie.id === parseInt(movieId)) {
+        this.movie = movie;
+      }
+    });
+    return this.movie;
   }
 
   constructor() { }

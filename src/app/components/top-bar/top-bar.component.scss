@@ -1,6 +1,8 @@
+@import '../../../variables.scss';
+
 .navbar {
-    background-color: #30234b;
-    color: #fff;
+    background-color: $darkPurple;
+    color: $white;
 
     .icon-img {
         width: 2.5em;

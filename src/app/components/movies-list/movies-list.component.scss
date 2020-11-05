@@ -1,0 +1,18 @@
+@import '../../../variables.scss';
+
+.float-button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 5%;
+    margin-bottom: 3%;
+    .btn {
+        background: $darkPurple;
+        border-radius: 50%;
+        height: 80px;
+        width: 80px;
+        border: none;
+        font-size: 40px;
+        color: $white;
+    }
+}

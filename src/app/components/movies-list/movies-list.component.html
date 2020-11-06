@@ -62,9 +62,11 @@
             <div class="delete-icon" (click)="deleteMovie(movie)">
                 <fa-icon [icon]="faTimes"></fa-icon>
             </div>
-            <a routerLink="/details/{{movie.id}}">
-                <img [src]="movie.posterImage" class="posterImage" alt="movie-poster" />
-            </a>
+            <div class="router-link">
+                <a routerLink="/details/{{movie.id}}">
+                    <img [src]="movie.posterImage" class="posterImage" alt="movie-poster" />
+                </a>
+            </div>
             <div class="movie-details">
                 <div>{{movie.title}}</div>
                 <div>{{movie.year}}</div>

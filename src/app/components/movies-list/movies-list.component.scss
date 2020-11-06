@@ -24,11 +24,16 @@
     font-weight: bold;
     margin-bottom: -20px;
 
-    .posterImage {
-        width: 100%;
-        height: 80%;
+    .router-link {
+        background-color: $black;
         border-radius: 3%;
+        .posterImage {
+            width: 100%;
+            height: 80%;
+            border-radius: 3%;
+        }
     }
+    
     .movie-details {
         visibility: hidden;
         position: relative;
@@ -49,6 +54,13 @@
         transform: scale(1.2);
         .movie-details {
             visibility: visible;
+        }
+        .router-link {
+            background-color: $black;
+            border-radius: 3%;
+            .posterImage {
+                opacity: 0.4;
+            }
         }
         .delete-icon {
             visibility: visible;

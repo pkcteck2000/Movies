@@ -12,6 +12,7 @@ import { faPlus, faStar, faTimesCircle } from '@fortawesome/free-solid-svg-icons
 export class FavoritMovieComponent implements OnInit {
 
   favoriteMovies;
+  
   //FontAwesome icons
   faPlus = faPlus;
   faStar = faStar;

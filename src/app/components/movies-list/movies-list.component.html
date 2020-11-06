@@ -1,3 +1,4 @@
+<!-- Form for adding new movie -->
 <div class="container border border-primary  mt-4 pb-3" [hidden]="isFormHidden">
     <div class="close-icon" (click)="showForm()">
         <fa-icon [icon]="faTimes"></fa-icon>
@@ -6,7 +7,8 @@
         <form class="form-container" [formGroup]="addMovieForm" (ngSubmit)="addMovie(addMovieForm.value)">
             <div class="row">
                 <div class="col-12 pb-4">
-                    <input class="input w-100" name="title" type="text" formControlName="title" placeholder="Movie Title">
+                    <input class="input w-100" name="title" type="text" formControlName="title"
+                        placeholder="Movie Title">
                 </div>
                 <div class="col-12 pb-4">
                     <input class="input w-100" name="year" type="text" formControlName="year" placeholder="Movie Year">
@@ -14,15 +16,18 @@
             </div>
             <div class="row">
                 <div class="col-12 pb-4">
-                    <input class="input w-100" name="image-link" type="text" formControlName="posterImage" placeholder="Poster Image">
+                    <input class="input w-100" name="image-link" type="text" formControlName="posterImage"
+                        placeholder="Poster Image">
                 </div>
                 <div class="col-12 pb-4">
-                    <input class="input w-100" name="youtube-link" type="text" formControlName="trailerLink" placeholder="Trailer Title">
+                    <input class="input w-100" name="youtube-link" type="text" formControlName="trailerLink"
+                        placeholder="Trailer Title">
                 </div>
             </div>
             <div class="row">
                 <div class="col-12 pb-4">
-                    <textarea class="form-control w-100" formControlName="description" id="exampleFormControlTextarea1" placeholder="Description" rows="3"></textarea>
+                    <textarea class="form-control w-100" formControlName="description" id="exampleFormControlTextarea1"
+                        placeholder="Description" rows="3"></textarea>
                 </div>
             </div>
             <div class="row pb-4">
@@ -50,14 +55,15 @@
     </div>
 </div>
 
+<!-- Listing of movies -->
 <div class="m-5">
     <div class="row">
-        <div  *ngFor="let movie of movies" class="posterImage-container col-12 col-sm-4 col-md-3 col-lg-2">
+        <div *ngFor="let movie of movies" class="posterImage-container col-12 col-sm-4 col-md-3 col-lg-2">
             <div class="delete-icon" (click)="deleteMovie(movie)">
                 <fa-icon [icon]="faTimes"></fa-icon>
             </div>
-            <a routerLink = "/details/{{movie.id}}">
-                <img [src] = "movie.posterImage" class="posterImage" alt="movie-poster"/>
+            <a routerLink="/details/{{movie.id}}">
+                <img [src]="movie.posterImage" class="posterImage" alt="movie-poster" />
             </a>
             <div class="movie-details">
                 <div>{{movie.title}}</div>
@@ -70,6 +76,8 @@
         </div>
     </div>
 </div>
+
+<!-- Floating button to toggle input form -->
 <div class="float-button">
     <button class="btn shadow-lg btn-warning" (click)="showForm()" [hidden]="!isFormHidden">
         <fa-icon [icon]="faPlus"></fa-icon>

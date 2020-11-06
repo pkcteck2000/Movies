@@ -10,7 +10,7 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons';
 export class FooterComponent implements OnInit {
 
   faHeart = faHeart;
-  
+
   constructor() { }
 
   ngOnInit(): void {

@@ -11,6 +11,7 @@ export class MoviesService {
 
   movies: IMovies[];
   movie: IMovies;
+  existingFavoritMovieList;
 
   addMovie = (movie) => {
     this.movies.unshift(movie);
@@ -24,18 +25,29 @@ export class MoviesService {
     });
   }
 
-  getMovieList = ():IMovies[]  => {
+  getMovieList = (): IMovies[] => {
     this.movies = moviesList
     return this.movies;
   }
 
-  getMovie = (movieId):IMovies  => {
+  getMovie = (movieId): IMovies => {
     moviesList.forEach((movie) => {
-      if(movie.id === parseInt(movieId)) {
+      if (movie.id === parseInt(movieId)) {
         this.movie = movie;
       }
     });
     return this.movie;
+  }
+
+  addToFavorits = (movie) => {
+    this.existingFavoritMovieList = JSON.parse(localStorage.getItem('movielist')) || []
+    this.existingFavoritMovieList.push(movie);
+    localStorage.setItem('movielist', JSON.stringify(this.existingFavoritMovieList));
+  }
+
+  getToFavorits() {
+    this.existingFavoritMovieList = JSON.parse(localStorage.getItem('movielist'));
+    return this.existingFavoritMovieList;
   }
 
   constructor() { }

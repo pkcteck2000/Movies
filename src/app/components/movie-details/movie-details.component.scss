@@ -1,11 +1,14 @@
 .container {
-   .iframe{
-       height: 450px;
-   }
-   .movie-details {
-       .title {
-           font-weight: bold;
-           font-size: larger;
-       }
-   }
+    .iframe {
+        height: 450px;
+    }
+    .movie-details {
+        .title {
+            font-weight: bold;
+            font-size: larger;
+        }
+    }
+    .add-to-favorits {
+        font-size: 40px;
+    }
 }

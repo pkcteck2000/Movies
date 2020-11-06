@@ -15,7 +15,7 @@ export class MoviesListComponent implements OnInit {
   movies: IMovies[];
   id: number;
   addMovieForm: any;
-  myForm:FormGroup;
+  myForm: FormGroup;
 
   //FontAwesome icons
   faPlus = faPlus;
@@ -27,22 +27,22 @@ export class MoviesListComponent implements OnInit {
   constructor(
     private moviesService: MoviesService,
     private formBuilder: FormBuilder
-  ) { 
+  ) {
     this.addMovieForm = this.formBuilder.group({
-        title: "",
-        year: "",
-        posterImage: "",
-        rating: 0.0,
-        trailerLink: "",
-        description: ""
+      title: "",
+      year: "",
+      posterImage: "",
+      rating: 0.0,
+      trailerLink: "",
+      description: ""
     });
   }
 
-  generateId = ():number => {
+  generateId = (): number => {
     return Math.floor(Math.random() * 1000);
   }
 
-  addMovie = ( formData ) => {
+  addMovie = (formData) => {
     this.id = this.generateId();
     formData.id = this.id;
     console.log(formData);

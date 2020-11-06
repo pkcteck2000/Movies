@@ -1,16 +1,19 @@
 <div class="container border border-primary  mt-4 mb-4 p-3">
     <iframe class="iframe w-100" [src]="trailerLink" allowfullscreen></iframe>
     <div class="movie-details">
-        <div class="title">{{movieDetails.title}}</div>
-        <div class="year">{{movieDetails.year}}</div>
+        <div class="title">{{ movieDetails.title }}</div>
+        <div class="year">{{ movieDetails.year }}</div>
         <div class="rating">
-            {{movieDetails.rating}}
+            {{ movieDetails.rating }}
             <fa-icon [icon]="faStar"></fa-icon>
         </div>
         <div class="movie-description">
             <p>
-                {{movieDetails.description}}
+                {{ movieDetails.description }}
             </p>
+        </div>
+        <div [hidden]="isFavorite" class="add-to-favorits" (click)="addToFavorits(movieDetails)">
+            <fa-icon [icon]="faHeart"></fa-icon>
         </div>
     </div>
 </div>

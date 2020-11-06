@@ -1,3 +1,20 @@
 <div class="container border border-primary  mt-4 mb-4 p-3">
-    <iframe class="iframe w-100" src="https://www.youtube.com/embed/Dj-HNEZ59Z4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe class="iframe w-100" [src]="trailerLink" allowfullscreen></iframe>
+    <div class="movie-details">
+        <div class="title">{{movieDetails.title}}</div>
+        <div class="year">{{movieDetails.year}}</div>
+        <div class="rating">
+            {{movieDetails.rating}}
+            <fa-icon [icon]="faStar"></fa-icon>
+        </div>
+        <div class="movie-description">
+            <p>
+                Avane Srimannarayana is a 2019 Indian Kannada-language
+                fantasy adventure comedy film. directed and edited by Sachin Ravi in his directorial debut.
+                Jointly produced by Pushkara Mallikarjunaiah and H.K.Prakash, the film features Rakshit Shetty and
+                Shanvi Srivastava in lead roles. Ajaneesh Loknath and Charan Raj composed the soundtrack, with the
+                former composing the score. Karm Chawla handled the cinematography.
+            </p>
+        </div>
+    </div>
 </div>

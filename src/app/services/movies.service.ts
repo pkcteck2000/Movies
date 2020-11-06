@@ -50,5 +50,17 @@ export class MoviesService {
     return this.existingFavoritMovieList;
   }
 
+  removeFavorit(movie) {
+    this.existingFavoritMovieList = JSON.parse(localStorage.getItem('movielist'));
+    this.existingFavoritMovieList.forEach((item, index) => {
+      if (item.id === movie.id) {
+        this.existingFavoritMovieList.splice(index, 1)
+        //console.log(movie.id)
+      }
+    });
+    localStorage.removeItem('movielist');
+    localStorage.setItem('movielist', JSON.stringify(this.existingFavoritMovieList));
+  }
+
   constructor() { }
 }

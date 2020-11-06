@@ -2,7 +2,7 @@
 <div class="m-5">
     <div class="row">
         <div *ngFor="let movie of favoriteMovies" class="posterImage-container col-12 col-sm-4 col-md-3 col-lg-2">
-            <div class="delete-icon">
+            <div class="delete-icon" (click)="removeFavorit(movie)">
                 <fa-icon [icon]="faTimes"></fa-icon>
             </div>
             <a routerLink="/details/{{movie.id}}">

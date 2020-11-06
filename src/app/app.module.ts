@@ -10,6 +10,7 @@ import { TopBarComponent } from './components/top-bar/top-bar.component';
 import { MoviesListComponent } from './components/movies-list/movies-list.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
+import { FavoritMovieComponent } from './components/favorit-movie/favorit-movie.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { MovieDetailsComponent } from './components/movie-details/movie-details.
     TopBarComponent,
     MoviesListComponent,
     FooterComponent,
-    MovieDetailsComponent
+    MovieDetailsComponent,
+    FavoritMovieComponent
   ],
   imports: [
     BrowserModule,

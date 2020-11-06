@@ -15,13 +15,14 @@ export class MoviesListComponent implements OnInit {
   movies: IMovies[];
   id: number;
   addMovieForm: any;
-
   myForm:FormGroup;
 
   //FontAwesome icons
   faPlus = faPlus;
   faStar = faStar;
   faTimes = faTimesCircle;
+
+  isFormHidden: boolean = true;
 
   constructor(
     private moviesService: MoviesService,
@@ -32,7 +33,8 @@ export class MoviesListComponent implements OnInit {
         year: "",
         posterImage: "",
         rating: 0.0,
-        trailerLink: ""
+        trailerLink: "",
+        description: ""
     });
   }
 
@@ -50,6 +52,10 @@ export class MoviesListComponent implements OnInit {
 
   deleteMovie = (movie) => {
     this.moviesService.deleteMovie(movie);
+  }
+
+  showForm = () => {
+    this.isFormHidden = !this.isFormHidden;
   }
 
   ngOnInit(): void {

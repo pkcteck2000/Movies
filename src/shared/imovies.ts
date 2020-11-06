@@ -5,4 +5,5 @@ export interface IMovies {
     posterImage: string;
     rating: number;
     trailerLink: string;
+    description: string;
 }

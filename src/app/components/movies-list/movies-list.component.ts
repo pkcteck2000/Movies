@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { IMovieAPI } from '../../../shared/imovies-api';
 import { MoviesService } from '../../services/movies.service';
+import { SearchService } from '../../services/search.service';
 
 @Component({
   selector: 'app-movies-list',
@@ -31,6 +32,7 @@ export class MoviesListComponent implements OnInit {
 
   constructor(
     private moviesService: MoviesService,
+    private searchService: SearchService,
     private formBuilder: FormBuilder
   ) {
     this.addMovieForm = this.formBuilder.group({
@@ -63,10 +65,12 @@ export class MoviesListComponent implements OnInit {
     this.isFormHidden = !this.isFormHidden;
   }*/
 
+  message:string; 
+
   loadPage = () => {
     this.isLoading = true;
     this.movies = [];
-    this.moviesService.getMovies(this.pageNo).subscribe(response => {
+    this.moviesService.getMovies(this.pageNo, this.message).subscribe(response => {
       this.movies = response.Search;
       console.log('MOVIES', this.movies);
       this.isLoading = false;
@@ -76,11 +80,17 @@ export class MoviesListComponent implements OnInit {
   changePage = ( val ) => {
     this.pageNo += parseInt(val);
     this.loadPage();
-
   }
 
+
   ngOnInit(): void {
-    this.loadPage();
+    //this.loadPage();
+    this.searchService.currentMessage.subscribe( (message) => 
+      {
+        this.message = message;
+        this.loadPage();
+      }
+    )
   }
 
 }

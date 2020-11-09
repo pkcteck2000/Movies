@@ -20,8 +20,12 @@ export class MoviesService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getMovies(page): Observable<any> {
-    const url = `${this.baseUrl}?s=john&page=${page}&${this.apiKey}`;
+  getMovies(page, searchWord): Observable<any> {
+    if(searchWord === ''){
+      const url = `${this.baseUrl}?s=john&page=${page}&${this.apiKey}`;
+      return this.httpClient.get(url);
+    }
+    const url = `${this.baseUrl}?s=${searchWord}&page=${page}&${this.apiKey}`;
     return this.httpClient.get(url);
   }
 

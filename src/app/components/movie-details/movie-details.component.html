@@ -1,22 +1,30 @@
-<div class="container border border-primary  mt-4 mb-4 p-3">
-    <iframe class="iframe w-100" [src]="trailerLink" allowfullscreen></iframe>
-    <div class="movie-details">
-        <div class="title">{{ movieDetails.title }}</div>
-        <div class="year">{{ movieDetails.year }}</div>
-        <div class="rating">
-            {{ movieDetails.rating }}
-            <fa-icon [icon]="faStar"></fa-icon>
+<div class="container border border-primary  mt-4 mb-4">
+    <!--<iframe class="iframe w-100" [src]="trailerLink" allowfullscreen></iframe>-->
+    <div class="row">
+        <div class="col-12 col-md-5 p-5">
+            <img [src]="movieDetails.Poster" class="image" />
         </div>
-        <div class="movie-description">
-            <p>
-                {{ movieDetails.description }}
-            </p>
-        </div>
-        <div [hidden]="isFavorite" class="add-to-favorits" (click)="addToFavorits(movieDetails)">
-            <fa-icon [icon]="faHeart"></fa-icon>
+        <div class="col-12 col-md-7  p-5 movie-details">
+            <div class="title">{{ "Title : " + movieDetails.Title }}</div>
+            <div class="info"><span class="label">{{ "Year : "}}</span>{{ movieDetails.Year }}</div>
+            <div class="info"><span class="label">{{ "Released : "}}</span>{{ movieDetails.Released }}</div>
+            <div class="info"><span class="label">{{ "Genre : "}}</span>{{ movieDetails.Genre }}</div>
+            <div class="info"><span class="label">{{ "Director : "}}</span>{{ movieDetails.Director }}</div>
+            <div class="info"><span class="label">{{ "Actors : "}}</span>{{ movieDetails.Actors }}</div>
+            <div class="info"><span class="label">{{ "Language : "}}</span>{{ movieDetails.Language }}</div>
+            <div class="info">
+                <fa-icon [icon]="faStar"></fa-icon>
+                {{ movieDetails.Ratings[0].Value }}
+            </div>
+            <div class="movie-description pt-4">
+                <p>
+                    {{ movieDetails.Plot }}
+                </p>
+            </div>
+            <!-- <div [hidden]="isFavorite" class="add-to-favorits" (click)="addToFavorits(movieDetails)">
+                <fa-icon [icon]="faHeart"></fa-icon>
+            </div> -->
         </div>
     </div>
 </div>
-<div class="m-5">
-    Dummy div
-</div>
+<div class="m-5 pb-3"></div>

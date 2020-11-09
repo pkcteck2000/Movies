@@ -1,14 +1,28 @@
+@import "../../../variables.scss";
+
 .container {
+    background-color: $lightWhitePurple;
     .iframe {
         height: 450px;
     }
     .movie-details {
         .title {
             font-weight: bold;
-            font-size: larger;
+            font-size: 30px;
+        }
+        .info {
+            padding: 5px;
+            .label {
+                font-weight: bold;
+                font-size: 20px;
+            }
         }
     }
     .add-to-favorits {
         font-size: 40px;
+    }
+    .image {
+        width: 100%;
+        height: 100%;
     }
 }

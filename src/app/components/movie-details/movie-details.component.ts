@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
-import { IMovies } from '../../../shared/imovies';
+import { IMovieAPI } from '../../../shared/imovies-api';
 import { MoviesService } from '../../services/movies.service';
 import { faStar, faHeart } from '@fortawesome/free-solid-svg-icons';
 
@@ -15,10 +15,11 @@ import { faStar, faHeart } from '@fortawesome/free-solid-svg-icons';
 export class MovieDetailsComponent implements OnInit {
 
   movieId: any;
-  movieDetails: IMovies;
-  favoriteMovieDetails: IMovies[];
-  trailerLink: SafeResourceUrl;
-  trailerBaseUrl = "https://www.youtube.com/embed/";
+  movieDetails;
+  //favoriteMovieDetails: IMovieAPI[];
+  //trailerLink: SafeResourceUrl;
+  //trailerBaseUrl = "https://www.youtube.com/embed/";
+  isLoading = true;
 
   faStar = faStar;
   faHeart = faHeart;
@@ -26,11 +27,12 @@ export class MovieDetailsComponent implements OnInit {
   isFavorite = false;
 
   constructor(
-    private route: ActivatedRoute,
+    private activatedRoute: ActivatedRoute,
     private moviesService: MoviesService,
     private sanitizer: DomSanitizer
   ) { }
 
+  /*
   addToFavorits = (movie) => {
     this.moviesService.addToFavorits(movie);
     console.log(movie);
@@ -48,11 +50,18 @@ export class MovieDetailsComponent implements OnInit {
       );
     }
   }
+  */
 
   ngOnInit(): void {
-    this.movieId = this.route.snapshot.paramMap.get('id');
-    this.movieDetails = this.moviesService.getMovie(this.movieId);
-    this.trailerLink = this.sanitizer.bypassSecurityTrustResourceUrl(this.trailerBaseUrl + this.movieDetails.trailerLink);
-    this.getToFavorits();
+    this.movieId = this.activatedRoute.snapshot.paramMap.get('id');
+    
+    this.moviesService.getMovie(this.movieId).subscribe(response => {
+      this.movieDetails = response;
+      console.log('MOVIES', this.movieDetails);
+      this.isLoading = false;
+    });
+
+    //this.trailerLink = this.sanitizer.bypassSecurityTrustResourceUrl(this.trailerBaseUrl + this.movieDetails.trailerLink);
+    //this.getToFavorits();
   }
 }

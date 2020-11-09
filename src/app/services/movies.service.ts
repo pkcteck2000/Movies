@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 
-import { moviesList } from '../../shared/moviesList';
-import { IMovies } from '../../shared/imovies';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+import  { IMovieAPI } from '../../shared/imovies-api';
 
 @Injectable({
   providedIn: 'root'
@@ -9,11 +11,27 @@ import { IMovies } from '../../shared/imovies';
 
 export class MoviesService {
 
-  movies: IMovies[];
-  movie: IMovies;
+  apiKey = 'apikey=50b31867';
+  baseUrl = 'http://www.omdbapi.com/';
+
+  movies: IMovieAPI[];
+  movie: IMovieAPI;
   existingFavoritMovieList;
 
-  addMovie = (movie) => {
+  constructor(private httpClient: HttpClient) { }
+
+  getMovies(page): Observable<any> {
+    const url = `${this.baseUrl}?s=john&page=${page}&${this.apiKey}`;
+    return this.httpClient.get(url);
+  }
+
+  getMovie(id): Observable<any> {
+    const url = `${this.baseUrl}?i=${id}&${this.apiKey}`;
+    console.log(url)
+    return this.httpClient.get(url);
+  }
+
+  /*addMovie = (movie) => {
     this.movies.unshift(movie);
   }
 
@@ -60,7 +78,5 @@ export class MoviesService {
     });
     localStorage.removeItem('movielist');
     localStorage.setItem('movielist', JSON.stringify(this.existingFavoritMovieList));
-  }
-
-  constructor() { }
+  }*/
 }

@@ -1,5 +1,5 @@
 <!-- Form for adding new movie -->
-<div class="container border border-primary  mt-4 pb-3" [hidden]="isFormHidden">
+<!-- <div class="container border border-primary  mt-4 pb-3" [hidden]="isFormHidden">
     <div class="close-icon" (click)="showForm()">
         <fa-icon [icon]="faTimes"></fa-icon>
     </div>
@@ -54,37 +54,45 @@
         </form>
     </div>
 </div>
+-->
+
+<div class="d-flex justify-content-center m-5 pb-3">
+    <button (click)="changePage(-1)">PREVIOUS</button>
+    <button (click)="changePage(1)">NEXT</button>
+</div>
 
 <!-- Listing of movies -->
 <div class="m-5">
     <div class="row">
         <div *ngFor="let movie of movies" class="posterImage-container col-12 col-sm-4 col-md-3 col-lg-2">
-            <div class="delete-icon" (click)="deleteMovie(movie)">
+            
+            <!-- <div class="delete-icon" (click)="deleteMovie(movie)">
                 <fa-icon [icon]="faTimes"></fa-icon>
-            </div>
+            </div> -->
 
-            <a class="routerLink" routerLink="/details/{{movie.id}}">
-                <img [src]="movie.posterImage" class="posterImage" alt="movie-poster" />
+            <a class="routerLink" routerLink="/details/{{movie.imdbID}}">
+                <span *ngIf="movie.Poster === 'N/A'">
+                    <img src="http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg" class="posterImage" alt="movie-poster" />
+                </span>
+                <span *ngIf="movie.Poster != 'N/A'">
+                    <img [src]="movie.Poster" class="posterImage" alt="movie-poster" />
+                </span>
             </a>
             <div class="movie-details">
-                <div>{{movie.title}}</div>
-                <div>{{movie.year}}</div>
-                <div>
-                    {{movie.rating}}
-                    <fa-icon [icon]="faStar"></fa-icon>
-                </div>
+                <div>{{movie.Title}}</div>
+                <div>{{movie.Year}}</div>
             </div>
         </div>
     </div>
 </div>
 
-<div class="m-5">
-    Dummy div
-</div>
+<div class="m-5 pb-3"></div>
 
 <!-- Floating button to toggle input form -->
+<!--
 <div class="float-button">
     <button class="btn shadow-lg btn-warning" (click)="showForm()" [hidden]="!isFormHidden">
         <fa-icon [icon]="faPlus"></fa-icon>
     </button>
 </div>
+-->

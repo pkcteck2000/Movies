@@ -11,6 +11,7 @@ import { MoviesListComponent } from './components/movies-list/movies-list.compon
 import { FooterComponent } from './components/footer/footer.component';
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
 import { FavoritMovieComponent } from './components/favorit-movie/favorit-movie.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { FavoritMovieComponent } from './components/favorit-movie/favorit-movie.
     AppRoutingModule,
     FontAwesomeModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

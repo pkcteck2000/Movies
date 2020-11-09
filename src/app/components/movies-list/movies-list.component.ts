@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { faPlus, faStar, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { IMovies } from '../../../shared/imovies';
+import { Observable } from 'rxjs';
+import { IMovieAPI } from '../../../shared/imovies-api';
 import { MoviesService } from '../../services/movies.service';
 
 @Component({
@@ -12,10 +13,12 @@ import { MoviesService } from '../../services/movies.service';
 })
 export class MoviesListComponent implements OnInit {
 
-  movies: IMovies[];
+  movies;
   id: number;
   addMovieForm: any;
   myForm: FormGroup;
+  isLoading = false;
+  pageNo = 1;
 
   //FontAwesome icons
   faPlus = faPlus;
@@ -38,7 +41,7 @@ export class MoviesListComponent implements OnInit {
     });
   }
 
-  generateId = (): number => {
+  /*generateId = (): number => {
     return Math.floor(Math.random() * 1000);
   }
 
@@ -56,10 +59,26 @@ export class MoviesListComponent implements OnInit {
 
   showForm = () => {
     this.isFormHidden = !this.isFormHidden;
+  }*/
+
+  loadPage = () => {
+    this.isLoading = true;
+    this.movies = [];
+    this.moviesService.getMovies(this.pageNo).subscribe(response => {
+      this.movies = response.Search;
+      console.log('MOVIES', this.movies);
+      this.isLoading = false;
+    });
+  }
+
+  changePage = ( val ) => {
+    this.pageNo += parseInt(val);
+    this.loadPage();
+
   }
 
   ngOnInit(): void {
-    this.movies = this.moviesService.getMovieList();
+    this.loadPage();
   }
 
 }

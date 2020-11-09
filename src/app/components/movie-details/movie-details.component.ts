@@ -16,15 +16,15 @@ export class MovieDetailsComponent implements OnInit {
 
   movieId: any;
   movieDetails;
-  //favoriteMovieDetails: IMovieAPI[];
+  favoriteMovieDetails;
   //trailerLink: SafeResourceUrl;
   //trailerBaseUrl = "https://www.youtube.com/embed/";
+  isFavorite = false;
+
   isLoading = true;
 
   faStar = faStar;
   faHeart = faHeart;
-
-  isFavorite = false;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -32,7 +32,6 @@ export class MovieDetailsComponent implements OnInit {
     private sanitizer: DomSanitizer
   ) { }
 
-  /*
   addToFavorits = (movie) => {
     this.moviesService.addToFavorits(movie);
     console.log(movie);
@@ -43,25 +42,23 @@ export class MovieDetailsComponent implements OnInit {
     this.favoriteMovieDetails = this.moviesService.getToFavorits();
     if(this.favoriteMovieDetails){
       this.favoriteMovieDetails.forEach((movie) => {
-        if (movie.id === this.movieDetails.id) {
+        if (movie.imdbID === this.movieDetails.imdbID) {
           this.isFavorite = true;
         }
       }
       );
     }
   }
-  */
-
+  
   ngOnInit(): void {
     this.movieId = this.activatedRoute.snapshot.paramMap.get('id');
     
     this.moviesService.getMovie(this.movieId).subscribe(response => {
       this.movieDetails = response;
-      console.log('MOVIES', this.movieDetails);
       this.isLoading = false;
+      this.getToFavorits();
     });
-
+    
     //this.trailerLink = this.sanitizer.bypassSecurityTrustResourceUrl(this.trailerBaseUrl + this.movieDetails.trailerLink);
-    //this.getToFavorits();
   }
 }

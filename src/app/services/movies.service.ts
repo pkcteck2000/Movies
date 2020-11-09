@@ -56,18 +56,20 @@ export class MoviesService {
     });
     return this.movie;
   }
+  */
 
   addToFavorits = (movie) => {
-    this.existingFavoritMovieList = JSON.parse(localStorage.getItem('movielist')) || []
+    this.existingFavoritMovieList = JSON.parse(localStorage.getItem('movielist-api')) || []
     this.existingFavoritMovieList.push(movie);
-    localStorage.setItem('movielist', JSON.stringify(this.existingFavoritMovieList));
+    localStorage.setItem('movielist-api', JSON.stringify(this.existingFavoritMovieList));
   }
 
   getToFavorits() {
-    this.existingFavoritMovieList = JSON.parse(localStorage.getItem('movielist'));
+    this.existingFavoritMovieList = JSON.parse(localStorage.getItem('movielist-api'));
     return this.existingFavoritMovieList;
   }
 
+  /*
   removeFavorit(movie) {
     this.existingFavoritMovieList = JSON.parse(localStorage.getItem('movielist'));
     this.existingFavoritMovieList.forEach((item, index) => {

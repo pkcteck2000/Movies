@@ -78,10 +78,13 @@
                     <img [src]="movie.Poster" class="posterImage" alt="movie-poster" />
                 </span>
             </a>
+
             <div class="movie-details">
                 <div>{{movie.Title}}</div>
                 <div>{{movie.Year}}</div>
+                <div>{{movie.Type}}</div>
             </div>
+            
         </div>
     </div>
     <div *ngIf="isLoading">

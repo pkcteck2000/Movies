@@ -29,7 +29,7 @@ export class FavoritMovieComponent implements OnInit {
   }
   */
   ngOnInit(): void {
-    //this.favoriteMovies = this.moviesService.getToFavorits();
+    this.favoriteMovies = this.moviesService.getToFavorits();
   }
 
 }

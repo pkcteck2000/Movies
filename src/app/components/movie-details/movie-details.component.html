@@ -1,4 +1,4 @@
-<div class="container border border-primary  mt-4 mb-4">
+<div *ngIf="!isLoading" class="container border border-primary  mt-4 mb-4">
     <!--<iframe class="iframe w-100" [src]="trailerLink" allowfullscreen></iframe>-->
     <div class="row">
         <div class="col-12 col-md-5 p-5">
@@ -26,5 +26,8 @@
             </div> -->
         </div>
     </div>
+</div>
+<div *ngIf="isLoading">
+    <app-loading></app-loading>
 </div>
 <div class="m-5 pb-3"></div>

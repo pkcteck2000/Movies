@@ -57,13 +57,13 @@
 -->
 
 <div class="d-flex justify-content-center m-5 pb-3">
-    <button (click)="changePage(-1)">PREVIOUS</button>
-    <button (click)="changePage(1)">NEXT</button>
+    <fa-icon [icon]="faArrowLeft" class="arrow-mark d-flex justify-content-center align-items-center mr-5" (click)="changePage(-1)"></fa-icon>
+    <fa-icon [icon]="faArrowRight" class="arrow-mark d-flex justify-content-center align-items-center" (click)="changePage(1)"></fa-icon>
 </div>
 
 <!-- Listing of movies -->
 <div class="m-5">
-    <div class="row">
+    <div class="row" *ngIf="!isLoading">
         <div *ngFor="let movie of movies" class="posterImage-container col-12 col-sm-4 col-md-3 col-lg-2">
             
             <!-- <div class="delete-icon" (click)="deleteMovie(movie)">
@@ -84,7 +84,11 @@
             </div>
         </div>
     </div>
+    <div *ngIf="isLoading">
+        <app-loading></app-loading>
+    </div>
 </div>
+
 
 <div class="m-5 pb-3"></div>
 

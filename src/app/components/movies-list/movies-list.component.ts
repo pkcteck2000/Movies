@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { faPlus, faStar, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faStar, faTimesCircle, faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { IMovieAPI } from '../../../shared/imovies-api';
@@ -17,13 +17,15 @@ export class MoviesListComponent implements OnInit {
   id: number;
   addMovieForm: any;
   myForm: FormGroup;
-  isLoading = false;
+  isLoading = true;
   pageNo = 1;
 
   //FontAwesome icons
   faPlus = faPlus;
   faStar = faStar;
   faTimes = faTimesCircle;
+  faArrowLeft = faArrowLeft;
+  faArrowRight = faArrowRight;
 
   isFormHidden: boolean = true;
 

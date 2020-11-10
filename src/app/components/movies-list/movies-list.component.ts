@@ -20,16 +20,18 @@ export class MoviesListComponent implements OnInit {
   faStar = faStar;
   faTimes = faTimesCircle;
 
-  isFormHidden: boolean = true;
+  isLoading: boolean = true;
 
   constructor(
     private moviesService: MoviesService,
   ) {  }
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.moviesService.getMovieList().subscribe(response => {
       console.log("Response", response);
       this.movies = response;
+      this.isLoading = false;
     });
   }
 

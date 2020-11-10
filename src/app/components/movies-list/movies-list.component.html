@@ -1,15 +1,9 @@
-
-<div>
-    {{ movies.data.results[0].id }}
-</div>
-
-<!-- Listing of movies -->
+<!-- Listing of movies 
 <div class="m-5">
-    <div class="row">
+    <div class="row" *ngIf="!isLoading">
         <div *ngFor="let movie of movies.data.results" class="posterImage-container col-12 col-sm-4 col-md-3 col-lg-2">
-            
             <a class="routerLink" routerLink="/details/{{movie.id}}">
-                <img [src]="movie.posterImage" class="posterImage" alt="movie-poster" />
+                <img src="http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg" class="posterImage" alt="movie-poster" />
             </a>
             <div class="movie-details">
                 <div>{{movie.title}}</div>
@@ -17,8 +11,14 @@
             </div>
         </div>
     </div>
+    <div class="row" *ngIf="isLoading">
+        <app-loading></app-loading>
+    </div>
 </div>
 
 <div class="m-5">
     Dummy div
 </div>
+-->
+
+<app-loading></app-loading>

@@ -32,13 +32,13 @@ export class MovieDetailsComponent implements OnInit {
   ) { }
 
   addToFavorits = (movie) => {
-    this.moviesService.addToFavorits(movie);
+    //this.moviesService.addToFavorits(movie);
     console.log(movie);
     this.getToFavorits();
   }
 
   getToFavorits = () => {
-    this.favoriteMovieDetails = this.moviesService.getToFavorits();
+    //this.favoriteMovieDetails = this.moviesService.getToFavorits();
     if(this.favoriteMovieDetails){
       this.favoriteMovieDetails.forEach((movie) => {
         if (movie.id === this.movieDetails.id) {
@@ -50,9 +50,9 @@ export class MovieDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.movieId = this.route.snapshot.paramMap.get('id');
-    this.movieDetails = this.moviesService.getMovie(this.movieId);
-    this.trailerLink = this.sanitizer.bypassSecurityTrustResourceUrl(this.trailerBaseUrl + this.movieDetails.trailerLink);
-    this.getToFavorits();
+    //this.movieId = this.route.snapshot.paramMap.get('id');
+    //this.movieDetails = this.moviesService.getMovie(this.movieId);
+    //this.trailerLink = this.sanitizer.bypassSecurityTrustResourceUrl(this.trailerBaseUrl + this.movieDetails.trailerLink);
+    //this.getToFavorits();
   }
 }

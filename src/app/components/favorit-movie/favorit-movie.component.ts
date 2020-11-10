@@ -23,12 +23,12 @@ export class FavoritMovieComponent implements OnInit {
   ) { }
 
   removeFavorit = (movie) => {
-    this.moviesService.removeFavorit(movie);
-    this.favoriteMovies = this.moviesService.getToFavorits();
+    //this.moviesService.removeFavorit(movie);
+    //this.favoriteMovies = this.moviesService.getToFavorits();
   }
 
   ngOnInit(): void {
-    this.favoriteMovies = this.moviesService.getToFavorits();
+    //this.favoriteMovies = this.moviesService.getToFavorits();
   }
 
 }

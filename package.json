@@ -24,10 +24,12 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "@ng-bootstrap/ng-bootstrap": "^7.0.0",
     "bootstrap": "^4.5.3",
+    "crypto-js": "^4.0.0",
     "jquery": "^3.5.1",
     "ngx-bootstrap": "^6.1.0",
     "rxjs": "~6.6.0",
     "save": "^2.4.0",
+    "ts-md5": "^1.2.7",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
   },

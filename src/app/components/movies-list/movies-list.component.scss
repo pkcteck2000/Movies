@@ -20,7 +20,7 @@
 
 .posterImage-container {
     transition: 0.5s;
-    color: $white;
+    color: $black;
     font-weight: bold;
     margin-bottom: -20px;
 
@@ -32,7 +32,7 @@
     }  
         
     .movie-details {
-        visibility: hidden;
+        visibility: visible;
         position: relative;
         font-size: 15px;
         bottom: 100px;

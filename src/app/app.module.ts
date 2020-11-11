@@ -13,6 +13,7 @@ import { MovieDetailsComponent } from './components/movie-details/movie-details.
 import { FavoritMovieComponent } from './components/favorit-movie/favorit-movie.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoadingComponent } from './components/loading/loading.component';
+import { BannerComponent } from './components/banner/banner.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { LoadingComponent } from './components/loading/loading.component';
     FooterComponent,
     MovieDetailsComponent,
     FavoritMovieComponent,
-    LoadingComponent
+    LoadingComponent,
+    BannerComponent
   ],
   imports: [
     BrowserModule,

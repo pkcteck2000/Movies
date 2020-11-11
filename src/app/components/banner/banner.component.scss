@@ -1,0 +1,17 @@
+.carousel {
+    .carousel-inner {
+        .carousel-item {
+            .banner-image {
+                height: 20em;
+                filter: brightness(0.4);
+            }
+            .carousel-caption {
+                position: absolute;
+                top: 0px;
+                .banner-text{
+                    font-weight:bolder;
+                }
+            }
+        }
+    }
+}

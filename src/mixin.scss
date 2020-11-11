@@ -1,0 +1,57 @@
+@mixin movie-short-details($font-size) {
+    .movie-details {
+        text-align: left;
+        width: 11em;
+        white-space:normal;
+        margin: 0;
+        font-size: $font-size*1em;
+        .movie-year {
+            color: $gray;
+        }
+    }
+}
+
+@mixin poster-images($height, $width) {
+    .posterImage {      
+        height: $height*1em;
+        width: $width*1em;
+        transition: 0.2s;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+}
+
+@mixin hover-one-image-in-image-list {
+    &:hover {
+        .movie-details {
+            .movie-title{
+                color: $red;
+            }
+        }
+        .posterImage {
+            transform: translate(0px,-6px);
+        }
+    }
+}
+
+@mixin beautiful-scrollbar {
+    ::-webkit-scrollbar {
+        height: 5px;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background: $red; 
+        border-radius: 10px;
+    }
+}
+
+@mixin vertical-strickouts {
+    .above, .below {
+        height: 1.2em;
+        width: 0.1em;
+        background-color: $golderColor;
+        transform: rotate(45deg);
+    }
+    .above {
+        margin-left: 3em;
+    }
+}

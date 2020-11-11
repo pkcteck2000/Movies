@@ -27,10 +27,11 @@ export class MoviesListComponent implements OnInit {
   ) {  }
 
   ngOnInit(): void {
-    this.isLoading = true;
+    this.isLoading = false;
     this.moviesService.getMovieList().subscribe(response => {
-      console.log("Response", response);
-      this.movies = response;
+      //console.log("Response", response);
+      //this.movies = response;
+      this.movies = response.data.results.filter(word => word.thumbnail.path.substr(-19) != 'image_not_available');
       this.isLoading = false;
     });
   }

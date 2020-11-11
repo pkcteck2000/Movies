@@ -1,85 +1,51 @@
 @import "../../../variables.scss";
+@import "../../../mixin.scss";
 
-.float-button {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    margin: 5%;
-    margin-bottom: 3%;
-    z-index: 1;
-    .btn {
-        background: $darkPurple;
-        border-radius: 50%;
-        height: 80px;
-        width: 80px;
-        border: none;
-        font-size: 40px;
-        color: $white;
-    }
-}
+@include beautiful-scrollbar();
 
-.posterImage-container {
-    transition: 0.5s;
-    color: $white;
-    font-weight: bold;
-    margin-bottom: -20px;
+.scroll-movie-list-container {
+  position: relative;
+  font-weight:bold;
 
+    .scroll-movie {
+        position: relative;
+        top: -40px;
+        background-color: $white;
+
+        .scroll-movie-list {
+            overflow: auto;
+            white-space: nowrap;
+            text-align: left;
+          
+            .scroll-movie-list-inside {
+                display: inline-block;
+                color: $black;
+                padding-right: 1.5em;
+                vertical-align: text-top;
     
-    .posterImage {
-        width: 100%;
-        height: 80%;
-        border-radius: 3%;
-    }  
-        
-    .movie-details {
-        visibility: visible;
-        position: relative;
-        font-size: 15px;
-        bottom: 100px;
-        left: 3px;
-    }
-    .delete-icon {
-        visibility: hidden;
-        position: relative;
-        font-size: 20px;
-        top: 35px;
-        text-align: right;
-        color: $red;
-        width: 95%;
-        z-index: 1;
-    }
-    &:hover {
-        transform: scale(1.2);
-        .movie-details {
-            visibility: visible;
-        }
-        .delete-icon {
-            visibility: visible;
-        }
-        .posterImage {
-            filter: brightness(0.5);
-        }
-    }
-}
-
-.container {
-    .form-container {
-        display: block;
-        .input {
-            border: 0;
-            outline: 0;
-            border-bottom: 1px solid $black;
-            &:focus {
-                border-bottom: 2px solid $green;
+                @include movie-short-details(1);
+                @include poster-images(16, 11);
+                @include hover-one-image-in-image-list();
             }
         }
     }
-    .close-icon {
-        position: relative;
-        font-size: 30px;
-        top: 2px;
-        text-align: right;
-        color: $red;
-        width: 100%;
+    .all-movie-list-contailer {
+        font-size: 1.5em;
+        color: $black;
+        text-align: left;
+
+        @include vertical-strickouts();
+
+        .posterImage-container {
+            transition: 0.5s;
+            color: $black;
+            margin-bottom: 2em;
+            margin-right: 0em;
+            text-align: center;
+            
+            @include poster-images(12, 8);
+            @include movie-short-details(0.7);
+            @include hover-one-image-in-image-list();
+        }
     }
 }

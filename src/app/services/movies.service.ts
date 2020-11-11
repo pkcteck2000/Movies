@@ -14,7 +14,7 @@ export class MoviesService {
   movie: IMarvelMovies;
   existingFavoritMovieList;
 
-  baseUrl = "http://gateway.marvel.com/v1/public/series?ts=";
+  baseUrl = "http://gateway.marvel.com/v1/public/series?limit=20&ts=";
   pubKey = "756437395d731b7707a222bf7a943158";
   privKey = "b57c6d7e65b2344f97ac618a6036f83843a7a7e6";
   

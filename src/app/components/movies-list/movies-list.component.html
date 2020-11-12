@@ -14,28 +14,27 @@
             </div>
         </div>
     </div>
-    
-    <div class="container-fluid all-movie-list-contailer p-5 mb-3">
-        <div class="above"></div>
-            MARVEL MOVIES
-        <div class="below ml-2 mb-3"></div>
-        <div class="row">
-            <div *ngFor="let movie of movies" class="posterImage-container col-12 col-sm-4 col-md-3 col-lg-2">
-                <div class="router-link">
-                    <a routerLink="/details/{{movie.id}}">
-                        <img src="{{ movie.thumbnail.path + '.' + movie.thumbnail.extension }}" class="posterImage" alt="movie-poster" />
-                    </a>
-                    <div class="movie-details pt-3">
-                        <div class="movie-title"> {{ movie.title }} </div>
-                        <div class="movie-year"> {{ movie.endYear }} </div>
-                    </div>
+    <div class="container" *ngIf="isLoading">
+        <app-loading></app-loading>
+    </div>
+</div>
+
+ <div class="container-fluid all-movie-list-contailer p-5 mb-3">
+    <div class="above"></div>
+        MARVEL MOVIES
+    <div class="below ml-2 mb-3"></div>
+    <div class="row">
+        <div *ngFor="let movie of movies" class="posterImage-container col-12 col-sm-4 col-md-3 col-lg-2">
+            <div class="router-link">
+                <a routerLink="/details/{{movie.id}}">
+                    <img src="{{ movie.thumbnail.path + '.' + movie.thumbnail.extension }}" class="posterImage" alt="movie-poster" />
+                </a>
+                <div class="movie-details pt-3">
+                    <div class="movie-title"> {{ movie.title }} </div>
+                    <div class="movie-year"> {{ movie.endYear }} </div>
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="container" *ngIf="isLoading">
-        <app-loading></app-loading>
     </div>
 </div>
 

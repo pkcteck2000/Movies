@@ -29,23 +29,25 @@
             }
         }
     }
-    .all-movie-list-contailer {
-        font-size: 1.5em;
+}
+
+.all-movie-list-contailer {
+    font-size: 1.5em;
+    color: $black;
+    text-align: left;
+    font-weight:bold;
+
+    @include vertical-strickouts();
+
+    .posterImage-container {
+        transition: 0.5s;
         color: $black;
-        text-align: left;
-
-        @include vertical-strickouts();
-
-        .posterImage-container {
-            transition: 0.5s;
-            color: $black;
-            margin-bottom: 2em;
-            margin-right: 0em;
-            text-align: center;
-            
-            @include poster-images(12, 8);
-            @include movie-short-details(0.6);
-            @include hover-one-image-in-image-list();
-        }
+        margin-bottom: 2em;
+        margin-right: 0em;
+        text-align: center;
+        
+        @include poster-images(12, 8);
+        @include movie-short-details(0.6);
+        @include hover-one-image-in-image-list();
     }
 }

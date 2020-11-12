@@ -1,4 +1,4 @@
-<div class="container border border-primary  mt-4 mb-4 p-3">
+<!--<div class="container border border-primary  mt-4 mb-4 p-3">
     <iframe class="iframe w-100" [src]="trailerLink" allowfullscreen></iframe>
     <div class="movie-details">
         <div class="title">{{ movieDetails.title }}</div>
@@ -17,6 +17,30 @@
         </div>
     </div>
 </div>
-<div class="m-5">
-    Dummy div
+<div class="m-5 p-5"></div> -->
+
+<div class="container-fluid all-movie-list-contailer p-5 mb-3">
+    <div class="above"></div>
+        MARVEL CHARACTERS LIST
+    <div class="below ml-2 mb-3"></div>
+    <div class="row">
+        <div *ngFor="let movie of [1, 2,1,1,1,1]" class="posterImage-container col-12 col-sm-4 col-md-3 col-lg-2">
+            <div class="router-link">
+                <a routerLink="/details/{{movie}}">
+                    <div class="card">
+                        <div class="card-img-top" >
+                            <img class="card-image" src="http://i.annihil.us/u/prod/marvel/i/mg/1/00/51644d6b47668.jpg" alt="Card image cap">
+                        </div>
+                        <div class="card-body">
+                          <p class="card-text text-uppercase">Iron man</p>
+                          <p class="card-bottom-text text-uppercase">spider man</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
 </div>
+
+<!--<img src="{{ movie.thumbnail.path + '.' + movie.thumbnail.extension }}" class="posterImage" alt="movie-poster" />-->
+

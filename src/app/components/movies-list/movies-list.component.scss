@@ -23,7 +23,7 @@
                 padding-right: 1.5em;
                 vertical-align: text-top;
     
-                @include movie-short-details(1);
+                @include movie-short-details(0.9);
                 @include poster-images(16, 11);
                 @include hover-one-image-in-image-list();
             }
@@ -44,7 +44,7 @@
             text-align: center;
             
             @include poster-images(12, 8);
-            @include movie-short-details(0.7);
+            @include movie-short-details(0.6);
             @include hover-one-image-in-image-list();
         }
     }

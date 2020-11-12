@@ -10,7 +10,6 @@ import { TopBarComponent } from './components/top-bar/top-bar.component';
 import { MoviesListComponent } from './components/movies-list/movies-list.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
-import { FavoritMovieComponent } from './components/favorit-movie/favorit-movie.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoadingComponent } from './components/loading/loading.component';
 import { BannerComponent } from './components/banner/banner.component';
@@ -22,7 +21,6 @@ import { BannerComponent } from './components/banner/banner.component';
     MoviesListComponent,
     FooterComponent,
     MovieDetailsComponent,
-    FavoritMovieComponent,
     LoadingComponent,
     BannerComponent
   ],

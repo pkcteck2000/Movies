@@ -16,9 +16,9 @@ export class MovieDetailsComponent implements OnInit {
 
   movieId: any;
   movieDetails: IMarvelMovies;
-  favoriteMovieDetails: IMarvelMovies[];
   trailerLink: SafeResourceUrl;
   trailerBaseUrl = "https://www.youtube.com/embed/";
+  movies;
 
   faStar = faStar;
   faHeart = faHeart;
@@ -31,30 +31,10 @@ export class MovieDetailsComponent implements OnInit {
     //private sanitizer: DomSanitizer
   ) { }
 
-  /*addToFavorits = (movie) => {
-    //this.moviesService.addToFavorits(movie);
-    console.log(movie);
-    this.getToFavorits();
-  }
-
-  getToFavorits = () => {
-    //this.favoriteMovieDetails = this.moviesService.getToFavorits();
-    if(this.favoriteMovieDetails){
-      this.favoriteMovieDetails.forEach((movie) => {
-        if (movie.id === this.movieDetails.id) {
-          this.isFavorite = true;
-        }
-      }
-      );
-    }
-  }*/
-
-  movies;
   ngOnInit(): void {
-    //this.movieId = this.route.snapshot.paramMap.get('id');
+    this.movieId = this.route.snapshot.paramMap.get('id');
     //this.movieDetails = this.moviesService.getMovie(this.movieId);
     //this.trailerLink = this.sanitizer.bypassSecurityTrustResourceUrl(this.trailerBaseUrl + this.movieDetails.trailerLink);
-    //this.getToFavorits();
 
     this.moviesService.getMovieList().subscribe(response => {
       //console.log("Response", response);

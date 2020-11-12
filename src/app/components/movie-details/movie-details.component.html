@@ -24,23 +24,79 @@
         MARVEL CHARACTERS LIST
     <div class="below ml-2 mb-3"></div>
     <div class="row">
-        <div *ngFor="let movie of [1, 2,1,1,1,1]" class="posterImage-container col-12 col-sm-4 col-md-3 col-lg-2">
-            <div class="router-link">
-                <a routerLink="/details/{{movie}}">
-                    <div class="card">
-                        <div class="card-img-top" >
-                            <img class="card-image" src="http://i.annihil.us/u/prod/marvel/i/mg/1/00/51644d6b47668.jpg" alt="Card image cap">
-                        </div>
-                        <div class="card-body">
-                          <p class="card-text text-uppercase">Iron man</p>
-                          <p class="card-bottom-text text-uppercase">spider man</p>
-                        </div>
+        <div *ngFor="let movie of [1, 2,1,1,1,1]" class="posterImage-container col-12 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
+            <a routerLink="/details/{{movie}}">
+                <div class="card">
+                    <div class="card-img-top" >
+                        <img class="card-image" src="http://i.annihil.us/u/prod/marvel/i/mg/1/00/51644d6b47668.jpg" alt="Card image cap">
                     </div>
-                </a>
-            </div>
+                    <div class="card-body">
+                        <p class="card-text text-uppercase">Iron man</p>
+                        <p class="card-bottom-text text-uppercase">spider man</p>
+                    </div>
+                </div>
+            </a>
         </div>
     </div>
 </div>
 
-<!--<img src="{{ movie.thumbnail.path + '.' + movie.thumbnail.extension }}" class="posterImage" alt="movie-poster" />-->
-
+<div class="overview-container mb-5">
+    <div class="container-fluid d-none d-sm-block d-md-block overview-header p-4">
+        <img src="../../assets/images/Avengers.png" class="overview-heder-img" alt="marvel-logo">
+    </div>
+    <div class="container p-5 overview">
+        <div class="above"></div>
+            OVERVIEW
+        <div class="below ml-2 mb-3"></div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 col-lg-8">
+                    <div class="row">
+                        <div class="col-12 movie-details pb-5">
+                            The grave course of events set in motion by Thanos that wiped out half the universe and fractured the Avengers ranks compels the remaining Avengers to take one final stand in Marvel Studios' grand conclusion to twenty-two films, "Avengers: Endgame."
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-lg-4 movie-details pb-5">
+                            <div class="details-title text-uppercase">director</div>
+                            Anthony Russo, Joe Russo
+                        </div>
+                        <div class="col-12 col-lg-4 movie-details pb-5">
+                            <div class="details-title text-uppercase">PRODUCERS</div>
+                            Kevin Feige
+                        </div>
+                        <div class="col-12 col-lg-4 movie-details pb-5">
+                            <div class="details-title text-uppercase">SCREENPLAY WRITERS</div>
+                            Christopher Markus, Stephen McFeely
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-sm-6 col-lg-4 movie-details pb-5">
+                            <div class="details-title text-uppercase">EXECUTIVE PRODUCERS</div>
+                            Louis D’Esposito, Victoria Alonso, Michael Grillo, Trinh Tran, Jon Favreau, James Gunn, Stan Lee
+                        </div>
+                        <div class="col-12 col-sm-6 col-lg-4 movie-details pb-5">
+                            <div class="details-title text-uppercase">RELEASE DATE</div>
+                            April 26, 2019
+                        </div> 
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-5 pb-5">
+                            <div class="overview-button p-3">
+                                FULL CAST & CREDITS
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-5 pb-5">
+                            <div class="overview-button p-3">
+                                PARTNERS
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <img class="overview-image" src="http://i.annihil.us/u/prod/marvel/i/mg/1/00/51644d6b47668.jpg" alt="Card image cap">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

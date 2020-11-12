@@ -28,7 +28,6 @@
         color: $black;
         margin-bottom: 2em;
         margin-right: 0em;
-        text-align: center;
 
         .card {
             border-radius: 0em;
@@ -90,4 +89,52 @@
 .card:hover::after {
     transform: scaleY(1);
     transition: transform 0.8s;
+}
+
+.overview-container {
+    
+    .overview-header {
+        background-color: $black;
+        text-align: center;
+        width: 100%;
+
+        .overview-heder-img {
+            width: 30%;
+            margin-top: 2em;
+            margin-bottom: 6em;
+        }
+    }
+
+    .overview {
+        position: relative;
+        top: -60px;
+        background-color: $white;
+        font-size: 1.5em;
+        color: $black;
+        text-align: left;
+        font-weight:bold;
+
+        @include vertical-strickouts();
+
+        .overview-image {
+            width: 11em;
+            height: 18em;
+        }
+        
+        .details-title{
+            font-size: 0.85em;
+            color: $gray;
+        }
+
+        .overview-button {
+            background-color: $red;
+            color: $white;
+            font-size: 0.6em;
+            text-align: center;
+            width: 15em;
+            clip-path: polygon(10% 0, 0 35%, 0 100%, 90% 100%, 100% 65%, 100% 0);
+        }
+
+        @include movie-short-details(0.7);
+    }
 }

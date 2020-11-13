@@ -27,7 +27,8 @@ export class MoviesListComponent implements OnInit {
   ) {  }
 
   ngOnInit(): void {
-    this.isLoading = false;
+    this.isLoading = true;
+
     this.moviesService.getMovieList().subscribe(response => {
       //console.log("Response", response);
       //this.movies = response;
@@ -35,5 +36,4 @@ export class MoviesListComponent implements OnInit {
       this.isLoading = false;
     });
   }
-
 }

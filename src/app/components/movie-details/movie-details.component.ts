@@ -4,7 +4,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 import { IMarvelMovies } from '../../../shared/imovies';
 import { MoviesService } from '../../services/movies.service';
-import { faStar, faHeart } from '@fortawesome/free-solid-svg-icons';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-movie-details',
@@ -15,15 +15,13 @@ import { faStar, faHeart } from '@fortawesome/free-solid-svg-icons';
 export class MovieDetailsComponent implements OnInit {
 
   movieId: any;
-  movieDetails: IMarvelMovies;
+  movieCharacters: Observable<any>;
+  movieDetails: Observable<any>;
   trailerLink: SafeResourceUrl;
   trailerBaseUrl = "https://www.youtube.com/embed/";
-  movies;
 
-  faStar = faStar;
-  faHeart = faHeart;
-
-  isFavorite = false;
+  isCLoading = true;
+  isDLoading = true;
 
   constructor(
     private route: ActivatedRoute,
@@ -32,14 +30,23 @@ export class MovieDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.isCLoading = true;
+    this.isDLoading = true;
+    
     this.movieId = this.route.snapshot.paramMap.get('id');
-    //this.movieDetails = this.moviesService.getMovie(this.movieId);
     //this.trailerLink = this.sanitizer.bypassSecurityTrustResourceUrl(this.trailerBaseUrl + this.movieDetails.trailerLink);
 
-    this.moviesService.getMovieList().subscribe(response => {
+    this.moviesService.getMovieCharecters(this.movieId).subscribe(response => {
+      //console.log("Response", response.data.results);
+      //this.movieCharacters = response.data.results;
+      this.movieCharacters = response.data.results.filter(word => word.thumbnail.path.substr(-19) != 'image_not_available');
+      this.isCLoading = false;
+    });
+
+    this.moviesService.getMovieDetails(this.movieId).subscribe(response => {
       //console.log("Response", response);
-      //this.movies = response;
-      //this.movies = response.data.results.filter(word => word.thumbnail.path.substr(-19) != 'image_not_available');
+      this.movieDetails = response.data.results[0];
+      this.isDLoading = false;
     });
 
   }

@@ -23,7 +23,7 @@
     <div class="above"></div>
         MARVEL MOVIES
     <div class="below ml-2 mb-3"></div>
-    <div class="row">
+    <div class="row" *ngIf="!isLoading">
         <div *ngFor="let movie of movies" class="posterImage-container col-12 col-sm-4 col-md-3 col-lg-3 col-xl-2">
             <div class="router-link">
                 <a routerLink="/details/{{movie.id}}">
@@ -35,6 +35,9 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="container" *ngIf="isLoading">
+        <app-loading></app-loading>
     </div>
 </div>
 

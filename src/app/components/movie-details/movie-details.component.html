@@ -1,23 +1,14 @@
-<!--<div class="container border border-primary  mt-4 mb-4 p-3">
-    <iframe class="iframe w-100" [src]="trailerLink" allowfullscreen></iframe>
-    <div class="movie-details">
-        <div class="title">{{ movieDetails.title }}</div>
-        <div class="year">{{ movieDetails.year }}</div>
-        <div class="rating">
-            {{ movieDetails.rating }}
-            <fa-icon [icon]="faStar"></fa-icon>
-        </div>
-        <div class="movie-description">
-            <p>
-                {{ movieDetails.description }}
-            </p>
-        </div>
-        <div [hidden]="isFavorite" class="add-to-favorits" (click)="addToFavorits(movieDetails)">
-            <fa-icon [icon]="faHeart"></fa-icon>
-        </div>
+<!--<iframe class="iframe w-100" [src]="trailerLink" allowfullscreen></iframe>-->
+   
+<div class="banner-container w-100">
+    <app-banner [bannerText]="bannerTaxt"></app-banner>
+    <div class="container-fluid pt-3 pr-5">
+        <fa-icon [icon]="faFacebook" class="mr-4"></fa-icon>
+        <fa-icon [icon]="faTwitter" class="mr-4"></fa-icon>
+        <fa-icon [icon]="faInstagram" class="mr-4"></fa-icon>
     </div>
 </div>
-<div class="m-5 p-5"></div> -->
+
 
 <div class="container-fluid all-movie-list-contailer p-5 mb-3">
     <div class="above"></div>

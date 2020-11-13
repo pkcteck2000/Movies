@@ -133,8 +133,26 @@
             text-align: center;
             width: 15em;
             clip-path: polygon(10% 0, 0 35%, 0 100%, 90% 100%, 100% 65%, 100% 0);
+            cursor: default;
+
+            &:hover {
+                filter: brightness(0.3);
+            }
         }
 
         @include movie-short-details(0.7);
+    }
+}
+
+.banner-container {
+    .container-fluid {
+        background-color: $white;
+        position: absolute;
+        height: 1.8em;
+        clip-path: polygon(0 100%, 100% 100%, 100% 0);
+        top: 14.3em;
+        text-align: right;
+        font-size: 1.5em;
+        color: $gray;
     }
 }

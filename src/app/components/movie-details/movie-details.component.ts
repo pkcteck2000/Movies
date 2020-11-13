@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 import { IMarvelMovies } from '../../../shared/imovies';
+import { faFacebook, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { MoviesService } from '../../services/movies.service';
 import { Observable } from 'rxjs';
 
@@ -18,10 +19,15 @@ export class MovieDetailsComponent implements OnInit {
   movieCharacters: Observable<any>;
   movieDetails: Observable<any>;
   trailerLink: SafeResourceUrl;
-  trailerBaseUrl = "https://www.youtube.com/embed/";
+  trailerBaseUrl = "https://www.youtube.com/embed/VWRMIO8NE_g";
 
+  faFacebook = faFacebook;
+  faTwitter = faTwitter;
+  faInstagram = faInstagram;
+ 
   isCLoading = true;
   isDLoading = true;
+  bannerTaxt = "Please Wait...";
 
   constructor(
     private route: ActivatedRoute,
@@ -33,19 +39,19 @@ export class MovieDetailsComponent implements OnInit {
     this.isCLoading = true;
     this.isDLoading = true;
     
+    
     this.movieId = this.route.snapshot.paramMap.get('id');
-    //this.trailerLink = this.sanitizer.bypassSecurityTrustResourceUrl(this.trailerBaseUrl + this.movieDetails.trailerLink);
+    //this.trailerLink = this.sanitizer.bypassSecurityTrustResourceUrl(this.trailerBaseUrl);
 
+    
     this.moviesService.getMovieCharecters(this.movieId).subscribe(response => {
-      //console.log("Response", response.data.results);
-      //this.movieCharacters = response.data.results;
       this.movieCharacters = response.data.results.filter(word => word.thumbnail.path.substr(-19) != 'image_not_available');
       this.isCLoading = false;
     });
 
     this.moviesService.getMovieDetails(this.movieId).subscribe(response => {
-      //console.log("Response", response);
       this.movieDetails = response.data.results[0];
+      this.bannerTaxt = response.data.results[0].title;
       this.isDLoading = false;
     });
 

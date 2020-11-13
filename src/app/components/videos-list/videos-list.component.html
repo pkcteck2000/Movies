@@ -1,0 +1,37 @@
+<div class="container-fluid all-movie-list-contailer p-5 pt-0 mb-3">
+    <div class="above"></div>
+        LATEST VIDEOS
+    <div class="below ml-2 mb-3"></div>
+    <div class="row" *ngIf="!isLoading">
+        <div *ngFor="let video of videosList" class="posterImage-container col-12 col-sm-4 col-md-3 col-lg-3 col-xl-2">
+            <img src="{{ video.image }}" class="posterImage" alt="movie-poster" />
+            <div (click) = "playVideo(video)" class="p-2 icon-box">
+                <fa-icon [icon]="faPlay" class="mr-4"></fa-icon>
+            </div>
+            <div class="movie-details pt-3 ml-5 ml-sm-0 ml-md-0">
+                <div class="movie-year"> {{ video.title | slice:0:10 }}... </div>
+                <div class="movie-title"> {{ video.date }} </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" *ngIf="isLoading">
+        <app-loading></app-loading>
+    </div>
+</div>
+
+
+<div class="container  mt-4 mb-4 p-3" *ngIf="isPlayVideo">
+    <iframe class="iframe w-100" [src]="videoUrl" allowfullscreen></iframe>
+    <div class="movie-details">
+        <div class="cat-g text-uppercase pt-4 pb-2">{{ videoData.catgory }}</div>
+        <div class="title">{{ videoData.title }}</div>
+        <div class="year">{{ videoData.date }}</div>
+        <div class="movie-description">
+            <p>
+                {{ videoData.description }}
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="pb-5 mb-5"></div>

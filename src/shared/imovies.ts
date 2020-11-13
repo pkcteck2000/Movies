@@ -37,3 +37,12 @@ export interface IUrl {
     type: string;
     url: string;
 }
+
+export interface IVideo {
+    title: string,
+    image: string;
+    date: string,
+    embededId: string,
+    description: string,
+    catgory: string
+}

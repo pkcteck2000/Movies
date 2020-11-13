@@ -1,4 +1,4 @@
-import { IMovies } from './imovies';
+import { IMovies, IVideo } from './imovies';
 
 export const moviesList: IMovies[] = [
     {
@@ -81,5 +81,48 @@ export const moviesList: IMovies[] = [
         rating: 4.3,
         trailerLink: "PkRy7TZReZ8",
         description: "Girgit is a 2019 Tulu-language comedy film produced by Shoolin Films & Manjunath Attavar. The film was theatrically released in India on 23 August 2019, starring Roopesh Shetty, Shilpa Shetty, and others. The story of the film was written by Roopesh Shetty, and jointly directed by Roopesh Shetty and Rakesh Kadri and became a highest grossing Tulu film of all time."
+    },
+];
+
+export const videosList: IVideo[] = [
+    {
+        title: "Marvel Contest of Champions' Immortal Hulk",
+        image: "../../../assets/images/video-thumbnail/1.jpg",
+        date: "Nov 13, 2020",
+        embededId: "1rfhsxLUqVk",
+        description: "Channeling gamma energy from the Below-Place, the most powerful Hulk now roams The Battlerealm. Download Marvel Contest of Champions today to claim your FREE digital copy of Immortal Hulk.",
+        catgory: "Immortal Hulk"
+    },
+    {
+        title: "Marvel Contest of Champions' Cosmic Ghost Rider",
+        image: "../../../assets/images/video-thumbnail/2.jpg",
+        date: "Oct 29, 2020",
+        embededId: "WO9e_zqUVj8",
+        description: "Spirit of Vengeance, Check. Power Cosmic, Check. Frank Castle's mind, Check. Cosmic Ghost Rider enters The Battlerealm in Marvel Contest of Champions",
+        catgory: "Marvel 101"
+    },
+    {
+        title: "Marvel Studios' Avengers: Endgame - Official Trailer",
+        image: "../../../assets/images/video-thumbnail/3.jpg",
+        date: "Mar 14, 2019",
+        embededId: "TcMBFSGVi1c",
+        description: "Whatever it takes. Watch the brand-new trailer for Marvel Studios’ Avengers: Endgame.",
+        catgory: "Endgame"
+    },
+    {
+        title: "SPIDER-MAN: FAR FROM HOME - Official Trailer",
+        image: "../../../assets/images/video-thumbnail/4.jpg",
+        date: "May 06, 2019",
+        embededId: "Nt9L1jCKGnE",
+        description: "Spider-Man is a fictional superhero created by writer-editor Stan Lee and writer-artist Steve Ditko.",
+        catgory: "SPIDER-MAN"
+    },
+    {
+        title: "Marvel Studios' Black Widow | Final Trailer",
+        image: "../../../assets/images/video-thumbnail/5.jpg",
+        date: "Mar 09, 2019",
+        embededId: "ybji16u608U",
+        description: "At birth the Black Widow (aka Natasha Romanova) is given to the KGB, which grooms her to become its ultimate operative.",
+        catgory: "Black Widow"
     },
 ];

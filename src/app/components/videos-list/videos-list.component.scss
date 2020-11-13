@@ -1,0 +1,55 @@
+@import "../../../variables.scss";
+@import "../../../mixin.scss";
+
+.all-movie-list-contailer {
+    font-size: 1.5em;
+    color: $black;
+    text-align: left;
+    font-weight:bold;
+
+    @include vertical-strickouts();
+
+    .posterImage-container {
+        transition: 0.5s;
+        color: $black;
+        margin-bottom: 2em;
+        margin-right: 2.5em;
+        margin-right: 1.5em;
+        text-align: center;
+
+        .icon-box {
+            position: absolute;
+            top: 4.5em;
+            left: 10em;
+            color: $red;
+            font-size: 0.5em;
+            background-color: rgb(153, 147, 147);
+            width: 2.2em;
+        }
+
+        &:hover {
+            .icon-box {
+                background-color: $white;
+            }
+        }
+
+        @include poster-images(6, 10);
+        @include movie-short-details(0.6);
+    }
+}
+
+.container {
+    .iframe {
+        height: 550px;
+    }
+    .movie-details {
+        font-weight: bold;
+        .title {
+            font-size: 2em;
+        }
+        .cat-g {
+            font-size: 0.9em;
+            color: $gray;
+        }
+    }
+}

@@ -4,8 +4,8 @@
 @include beautiful-scrollbar();
 
 .scroll-movie-list-container {
-  position: relative;
-  font-weight:bold;
+    position: relative;
+    font-weight: bold;
 
     .scroll-movie {
         position: relative;
@@ -16,13 +16,13 @@
             overflow: auto;
             white-space: nowrap;
             text-align: left;
-          
+
             .scroll-movie-list-inside {
                 display: inline-block;
                 color: $black;
                 padding-right: 1.5em;
                 vertical-align: text-top;
-    
+
                 @include movie-short-details(0.9);
                 @include poster-images(16, 11);
                 @include hover-one-image-in-image-list();
@@ -35,7 +35,7 @@
     font-size: 1.5em;
     color: $black;
     text-align: left;
-    font-weight:bold;
+    font-weight: bold;
 
     @include vertical-strickouts();
 
@@ -45,7 +45,7 @@
         margin-bottom: 2em;
         margin-right: 0em;
         text-align: center;
-        
+
         @include poster-images(12, 8);
         @include movie-short-details(0.6);
         @include hover-one-image-in-image-list();

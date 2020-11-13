@@ -20,7 +20,7 @@
     font-size: 1.5em;
     color: $black;
     text-align: left;
-    font-weight:bold;
+    font-weight: bold;
 
     @include vertical-strickouts();
 
@@ -49,9 +49,10 @@
             }
 
             .card-body {
-                background-color: rgb(44, 43, 43);
+                background-color: $darkGray;
                 text-align: left;
-                .card-text, .card-bottom-text {
+                .card-text,
+                .card-bottom-text {
                     position: absolute;
                     color: $white;
                     z-index: 5;
@@ -60,7 +61,7 @@
                 .card-bottom-text {
                     bottom: 0em;
                     font-size: 0.5em;
-                    color: rgb(197, 194, 194);
+                    color: $textGray;
                 }
             }
 
@@ -92,7 +93,6 @@
 }
 
 .overview-container {
-    
     .overview-header {
         background-color: $black;
         text-align: center;
@@ -112,7 +112,7 @@
         font-size: 1.5em;
         color: $black;
         text-align: left;
-        font-weight:bold;
+        font-weight: bold;
 
         @include vertical-strickouts();
 
@@ -120,8 +120,8 @@
             width: 11em;
             height: 18em;
         }
-        
-        .details-title{
+
+        .details-title {
             font-size: 0.85em;
             color: $gray;
         }
@@ -144,15 +144,4 @@
     }
 }
 
-.banner-container {
-    .container-fluid {
-        background-color: $white;
-        position: absolute;
-        height: 1.8em;
-        clip-path: polygon(0 100%, 100% 100%, 100% 0);
-        top: 14.3em;
-        text-align: right;
-        font-size: 1.5em;
-        color: $gray;
-    }
-}
+@include banner-container-cross-bottom();

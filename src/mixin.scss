@@ -4,9 +4,9 @@
     .movie-details {
         text-align: left;
         width: 11em;
-        white-space:normal;
+        white-space: normal;
         margin: 0;
-        font-size: $font-size*1em;
+        font-size: $font-size * 1em;
         .movie-year {
             color: $gray;
         }
@@ -14,9 +14,9 @@
 }
 
 @mixin poster-images($height, $width) {
-    .posterImage {      
-        height: $height*1em;
-        width: $width*1em;
+    .posterImage {
+        height: $height * 1em;
+        width: $width * 1em;
         transition: 0.2s;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
@@ -25,12 +25,12 @@
 @mixin hover-one-image-in-image-list {
     &:hover {
         .movie-details {
-            .movie-title{
+            .movie-title {
                 color: $red;
             }
         }
         .posterImage {
-            transform: translate(0px,-6px);
+            transform: translate(0px, -6px);
         }
     }
 }
@@ -39,15 +39,16 @@
     ::-webkit-scrollbar {
         height: 5px;
     }
-    
+
     ::-webkit-scrollbar-thumb {
-        background: $red; 
+        background: $red;
         border-radius: 10px;
     }
 }
 
 @mixin vertical-strickouts {
-    .above, .below {
+    .above,
+    .below {
         height: 1.2em;
         width: 0.1em;
         background-color: $golderColor;
@@ -55,5 +56,38 @@
     }
     .above {
         margin-left: 3em;
+    }
+}
+
+@mixin youtubePlayerView($height) {
+    .container {
+        .iframe {
+            height: $height * 1px;
+        }
+        .movie-details {
+            font-weight: bold;
+            .title {
+                font-size: 2em;
+            }
+            .cat-g {
+                font-size: 0.9em;
+                color: $gray;
+            }
+        }
+    }
+}
+
+@mixin banner-container-cross-bottom {
+    .banner-container {
+        .container-fluid {
+            background-color: $white;
+            position: absolute;
+            height: 1.8em;
+            clip-path: polygon(0 100%, 100% 100%, 100% 0);
+            top: 14.3em;
+            text-align: right;
+            font-size: 1.5em;
+            color: $gray;
+        }
     }
 }

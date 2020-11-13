@@ -9,14 +9,17 @@
 
 <div class="container-fluid all-movie-list-contailer p-5 mb-3">
     <div class="above"></div>
-        MARVEL CHARACTERS LIST
+    MARVEL CHARACTERS LIST
     <div class="below ml-2 mb-3"></div>
     <div class="row" *ngIf="!isCLoading">
-        <div *ngFor="let character of movieCharacters" class="posterImage-container col-12 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
+        <div *ngFor="let character of movieCharacters"
+            class="posterImage-container col-12 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center">
             <a routerLink="/details/{{movie}}">
                 <div class="card">
-                    <div class="card-img-top" >
-                        <img class="card-image" src="{{ character.thumbnail.path + '.' + character.thumbnail.extension }}" alt="Card image cap">
+                    <div class="card-img-top">
+                        <img class="card-image"
+                            src="{{ character.thumbnail.path + '.' + character.thumbnail.extension }}"
+                            alt="Card image cap">
                     </div>
                     <div class="card-body">
                         <p class="card-text text-uppercase">{{ character.name }}</p>
@@ -37,14 +40,16 @@
     </div>
     <div class="container p-5 overview">
         <div class="above"></div>
-            OVERVIEW
+        OVERVIEW
         <div class="below ml-2 mb-3"></div>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12 col-lg-8">
                     <div class="row">
                         <div class="col-12 movie-details pb-5">
-                            The grave course of events set in motion by Thanos that wiped out half the universe and fractured the Avengers ranks compels the remaining Avengers to take one final stand in Marvel Studios' grand conclusion to twenty-two films, "Avengers: Endgame."
+                            The grave course of events set in motion by Thanos that wiped out half the universe and
+                            fractured the Avengers ranks compels the remaining Avengers to take one final stand in
+                            Marvel Studios' grand conclusion to twenty-two films, "Avengers: Endgame."
                         </div>
                     </div>
                     <div class="row">
@@ -64,12 +69,13 @@
                     <div class="row">
                         <div class="col-12 col-sm-6 col-lg-4 movie-details pb-5">
                             <div class="details-title text-uppercase">EXECUTIVE PRODUCERS</div>
-                            Louis D’Esposito, Victoria Alonso, Michael Grillo, Trinh Tran, Jon Favreau, James Gunn, Stan Lee
+                            Louis D’Esposito, Victoria Alonso, Michael Grillo, Trinh Tran, Jon Favreau, James Gunn, Stan
+                            Lee
                         </div>
                         <div class="col-12 col-sm-6 col-lg-4 movie-details pb-5">
                             <div class="details-title text-uppercase">RELEASE DATE</div>
                             April 26, 2019
-                        </div> 
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-12 col-sm-12 col-md-5 pb-5">
@@ -81,11 +87,13 @@
                             <div class="overview-button p-3">
                                 PARTNERS
                             </div>
-                        </div> 
+                        </div>
                     </div>
                 </div>
                 <div class="col-12 col-lg-4" *ngIf="!isDLoading">
-                    <img class="overview-image" src="{{ movieDetails.thumbnail.path + '.' + movieDetails.thumbnail.extension }}" alt="Card image cap">
+                    <img class="overview-image"
+                        src="{{ movieDetails.thumbnail.path + '.' + movieDetails.thumbnail.extension }}"
+                        alt="Card image cap">
                 </div>
                 <div class="col-12 col-lg-4" *ngIf="isDLoading">
                     <app-loading></app-loading>

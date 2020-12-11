@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { SearchService } from '../../services/search.service';
 
 @Component({
   selector: 'app-top-bar',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopBarComponent implements OnInit {
 
-  constructor() { }
+  faSearch = faSearch;
+
+  searchData = "";
+
+  constructor(private searchService: SearchService) {
+  }
+
+  message:string;
+
+  searchThis = () => {
+    this.searchService.changeMessage(this.searchData)
+  }
 
   ngOnInit(): void {
+    this.searchService.currentMessage.subscribe(message => this.message = message)
   }
 
 }

@@ -22,11 +22,12 @@ export class FavoritMovieComponent implements OnInit {
     private moviesService: MoviesService
   ) { }
 
+  /*
   removeFavorit = (movie) => {
     this.moviesService.removeFavorit(movie);
     this.favoriteMovies = this.moviesService.getToFavorits();
   }
-
+  */
   ngOnInit(): void {
     this.favoriteMovies = this.moviesService.getToFavorits();
   }

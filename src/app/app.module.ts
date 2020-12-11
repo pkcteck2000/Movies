@@ -11,6 +11,8 @@ import { MoviesListComponent } from './components/movies-list/movies-list.compon
 import { FooterComponent } from './components/footer/footer.component';
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
 import { FavoritMovieComponent } from './components/favorit-movie/favorit-movie.component';
+import { HttpClientModule } from '@angular/common/http';
+import { LoadingComponent } from './components/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -19,14 +21,16 @@ import { FavoritMovieComponent } from './components/favorit-movie/favorit-movie.
     MoviesListComponent,
     FooterComponent,
     MovieDetailsComponent,
-    FavoritMovieComponent
+    FavoritMovieComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

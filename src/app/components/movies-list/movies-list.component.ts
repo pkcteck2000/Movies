@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
-import { faPlus, faStar, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faStar, faTimesCircle, faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { IMovies } from '../../../shared/imovies';
+import { Observable } from 'rxjs';
+import { IMovieAPI } from '../../../shared/imovies-api';
 import { MoviesService } from '../../services/movies.service';
+import { SearchService } from '../../services/search.service';
 
 @Component({
   selector: 'app-movies-list',
@@ -12,20 +14,25 @@ import { MoviesService } from '../../services/movies.service';
 })
 export class MoviesListComponent implements OnInit {
 
-  movies: IMovies[];
+  movies;
   id: number;
   addMovieForm: any;
   myForm: FormGroup;
+  isLoading = true;
+  pageNo = 1;
 
   //FontAwesome icons
   faPlus = faPlus;
   faStar = faStar;
   faTimes = faTimesCircle;
+  faArrowLeft = faArrowLeft;
+  faArrowRight = faArrowRight;
 
   isFormHidden: boolean = true;
 
   constructor(
     private moviesService: MoviesService,
+    private searchService: SearchService,
     private formBuilder: FormBuilder
   ) {
     this.addMovieForm = this.formBuilder.group({
@@ -38,7 +45,7 @@ export class MoviesListComponent implements OnInit {
     });
   }
 
-  generateId = (): number => {
+  /*generateId = (): number => {
     return Math.floor(Math.random() * 1000);
   }
 
@@ -56,10 +63,34 @@ export class MoviesListComponent implements OnInit {
 
   showForm = () => {
     this.isFormHidden = !this.isFormHidden;
+  }*/
+
+  message:string; 
+
+  loadPage = () => {
+    this.isLoading = true;
+    this.movies = [];
+    this.moviesService.getMovies(this.pageNo, this.message).subscribe(response => {
+      this.movies = response.Search;
+      console.log('MOVIES', this.movies);
+      this.isLoading = false;
+    });
   }
 
+  changePage = ( val ) => {
+    this.pageNo += parseInt(val);
+    this.loadPage();
+  }
+
+
   ngOnInit(): void {
-    this.movies = this.moviesService.getMovieList();
+    //this.loadPage();
+    this.searchService.currentMessage.subscribe( (message) => 
+      {
+        this.message = message;
+        this.loadPage();
+      }
+    )
   }
 
 }
